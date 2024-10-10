@@ -62,6 +62,8 @@ Take some time to explore this terminal website made by me. You can list the pag
             } else if (input.startsWith('vim ')) {
                 const topic = input.split(' ')[1];
                 loadPage(topic);
+            } else if (input === '//') {
+                displayHelpMenu();
             } else if (input === 'clear') {
                 clearTerminal();
             } else {
@@ -78,6 +80,18 @@ Take some time to explore this terminal website made by me. You can list the pag
             clearTerminal();
         }
     });
+
+    // Display the help menu
+    function displayHelpMenu() {
+        terminalOutput.innerHTML += `\nHELP MENU\n`;
+        terminalOutput.innerHTML += `\nNavigation Commands:\n`;
+        terminalOutput.innerHTML += `ls                 - List all available pages\n`;
+        terminalOutput.innerHTML += `cat <page>         - View summary of a page (e.g. 'cat Projects')\n`;
+        terminalOutput.innerHTML += `vim <page>         - Open detailed view of a page (e.g. 'vim Projects')\n`;
+        terminalOutput.innerHTML += `clear              - Clear the terminal\n`;
+        terminalOutput.innerHTML += `Ctrl + L           - Clear the terminal\n`;
+        terminalOutput.innerHTML += `//                 - Show this help menu\n`;
+    }
 
     // Load content dynamically into the terminal
     function loadPage(topic) {
