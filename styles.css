@@ -1,26 +1,26 @@
 body {
     background-color: black;
-    font-family: 'Courier New', Courier, monospace;
     color: #33ff33;
-    margin: 0;
-    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .terminal {
-    border: 2px solid green;
+    border: 2px solid #33ff33;
     padding: 10px;
-    background-color: black;
+    margin: 50px auto;
+    width: 80%;
+    max-height: 90vh; /* Set a max height to the terminal */
+    overflow-y: auto; /* Enable scrolling when the content exceeds max height */
 }
 
 #terminal-output {
     white-space: pre-wrap;
-    overflow-wrap: break-word;
 }
 
 #terminal-input {
-    border: none;
-    background-color: black;
+    background: black;
     color: #33ff33;
-    outline: none;
+    border: none;
     width: 100%;
+    outline: none;
 }

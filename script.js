@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const terminalOutput = document.getElementById("terminal-output");
     const terminalInput = document.getElementById("terminal-input");
 
-    // Initialize the intro with a typing effect
-    const intro = ` 
+    // Store the intro text as a variable
+    const introText = ` 
  ________                                          .__           
  \\______ \\   ____  ____ ___________    ____   _____|  |__  __ __ 
   |    |  \\_/ __ \\/ __ \\\\____ \\__  \\  /    \\ /  ___/  |  \\|  |  \\
@@ -18,18 +18,26 @@ as an individual in all aspects.
 
 Take some time to explore this terminal website made by me. You can list the pages by typing ls. Tab Completion also works and you can also use clear command
 `;
-    typeIntro(intro);
+
+    let introTyped = false; // To check if intro has been typed
 
     function typeIntro(text, index = 0) {
         if (index < text.length) {
             terminalOutput.innerHTML += text.charAt(index);
-            setTimeout(() => typeIntro(text, index + 1), 15); // Adjust typing speed
+            setTimeout(() => typeIntro(text, index + 1), 15); // Adjust typing speed here
         } else {
+            introTyped = true; // Mark the intro as typed
             terminalOutput.innerHTML += '\n'; // New line after intro
-            terminalInput.focus(); // Focus on the input
+            terminalInput.focus(); // Focus on the input after typing
         }
     }
 
+    // Only type the intro when the page first loads
+    if (!introTyped) {
+        typeIntro(introText);
+    }
+
+    // Handle terminal input commands
     terminalInput.addEventListener("keydown", function(event) {
         if (event.key === 'Enter') {
             const input = terminalInput.value.trim();
@@ -40,7 +48,7 @@ Take some time to explore this terminal website made by me. You can list the pag
             } else if (input.startsWith('cat ')) {
                 const topic = input.split(' ')[1];
                 if (topic === 'Projects') {
-                    terminalOutput.innerHTML += "\nProject 1 - WebAutomation.io: The project consisted of many complex responsibilities which included setting up the Linux and Windows servers in the cloud. This included creating the necessary instances, configuring the necessary security settings, and installing the necessary packages. Configuring the autoscaling solution involved setting up the necessary triggers, rules, and policies for the autoscaling solution. Deploying the necessary services involved deploying the web server, database server, and other backend services that were necessary for the application. Configuring the necessary monitoring tools included setting up the necessary metrics, alarms, and notifications for the system. Running tests and validating the system included testing the system for performance, scalability, and other parameters. Implementing the necessary optimizations involved optimizing the system for better performance and scalability. Troubleshooting and resolving any issues included troubleshooting and resolving any issues that arose during the implementation.\n\nProject 2 - Solana Labs: This project focused on building decentralized applications (dApps) on the Solana blockchain. The responsibilities included setting up a Solana validator node, participating in the network consensus, and deploying smart contracts. The project aimed to leverage Solana's high throughput and low transaction fees to create scalable solutions for various industries. Additionally, the implementation of security audits and performance optimization techniques was crucial to ensure the integrity and efficiency of the deployed applications.\n";
+                    terminalOutput.innerHTML += "\nProject 1 - WebAutomation.io: The project consisted of many complex responsibilities...\nProject 2 - Solana Labs: A project that involved extensive research and application of blockchain technology...\n";
                 } else if (topic === 'Skills') {
                     terminalOutput.innerHTML += "\n* Terraform\n* Ansible\n";
                 } else if (topic === 'Experience') {
@@ -50,6 +58,9 @@ Take some time to explore this terminal website made by me. You can list the pag
                 } else {
                     terminalOutput.innerHTML += `\nUnknown topic: ${topic}\n`;
                 }
+            } else if (input.startsWith('vim ')) {
+                const topic = input.split(' ')[1];
+                openVimPage(topic);
             } else if (input === 'clear') {
                 clearTerminal();
             } else {
@@ -59,20 +70,41 @@ Take some time to explore this terminal website made by me. You can list the pag
             terminalInput.value = ''; // Clear input field
             terminalOutput.scrollTop = terminalOutput.scrollHeight; // Auto scroll to bottom
         }
+
+        // Clear terminal on Ctrl + L
+        if (event.ctrlKey && event.key === 'l') {
+            event.preventDefault(); // Prevent default Ctrl + L behavior
+            clearTerminal();
+        }
     });
 
-    function clearTerminal() {
-        const introLines = 6; // Adjust this number if you change the intro
-        terminalOutput.innerHTML = terminalOutput.innerHTML.split('\n').slice(0, introLines).join('\n'); // Keep intro
-        terminalInput.value = ''; // Clear input field
+    function openVimPage(topic) {
+        const pageMap = {
+            'Projects': 'projects.html',
+            'Skills': 'skills.html',
+            'Experience': 'experience.html',
+            'Contact': 'contact.html'
+        };
+
+        if (pageMap[topic]) {
+            window.open(pageMap[topic], '_blank'); // Open in new tab
+        } else {
+            terminalOutput.innerHTML += `\nUnknown page: ${topic}\n`;
+        }
     }
 
-    // Tab completion for `cat` command
+    function clearTerminal() {
+        terminalOutput.innerHTML = introText; // Reset terminal to show only the intro text
+        terminalInput.value = ''; // Clear input field
+        terminalInput.focus(); // Re-focus on input
+    }
+
+    // Tab completion for `cat` and `vim` commands
     terminalInput.addEventListener("keydown", function(event) {
         if (event.key === 'Tab') {
             event.preventDefault(); // Prevent the default tab behavior
             const input = terminalInput.value.trim();
-            if (input.startsWith('cat ')) {
+            if (input.startsWith('cat ') || input.startsWith('vim ')) {
                 const options = ['Projects', 'Skills', 'Experience', 'Contact'];
                 const lastWord = input.split(' ').pop();
                 const matches = options.filter(option => option.startsWith(lastWord));
