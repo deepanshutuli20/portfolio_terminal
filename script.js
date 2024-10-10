@@ -48,7 +48,7 @@ Take some time to explore this terminal website made by me. You can list the pag
             } else if (input.startsWith('cat ')) {
                 const topic = input.split(' ')[1];
                 if (topic === 'Projects') {
-                    terminalOutput.innerHTML += "\nProject 1 - WebAutomation.io: The project consisted of many complex responsibilities...\nProject 2 - Solana Labs: A project that involved extensive research and application of blockchain technology...\n";
+                    terminalOutput.innerHTML += "\n- WebAutomation.io\n- Solana Labs\n- BlueSpice MediaWiki\n";
                 } else if (topic === 'Skills') {
                     terminalOutput.innerHTML += "\n* Terraform\n* Ansible\n";
                 } else if (topic === 'Experience') {
