@@ -24,7 +24,7 @@ ________                                          .__
 
 const introText = `
 > Hello, I'm Deepanshu
-# Full Stack Developer | Data Engineer
+# Devops Engineer
 > Projects
 # Project 1 - Description...
 # Project 2 - Description...
@@ -33,20 +33,21 @@ const introText = `
 * Ansible
 > Contact
 # Email: youremail@example.com
-# LinkedIn: linkedin.com/in/yourprofile
+# Type ls to Navigate and cat to view the page, tab completion also works
 `;
 
 const availableCommands = ['Projects', 'Skills', 'Experience', 'Contact'];
 
 const terminalOutput = document.querySelector("#terminal-output");
 
+// Typing the intro and line art initially
 typeWriter(lineArt, terminalOutput, 10, () => {
     typeWriter(introText, terminalOutput, 50);
 });
 
 function handleCommand(event) {
     if (event.key === 'Enter') {
-        const input = event.target.value;
+        const input = event.target.value.trim();
         if (input === 'ls') {
             terminalOutput.innerHTML += "\nProjects\nSkills\nExperience\nContact\n";
         } else if (input.startsWith('cat ')) {
@@ -54,6 +55,8 @@ function handleCommand(event) {
             if (target === 'Projects') {
                 terminalOutput.innerHTML += "\nProject 1 - Description...\nProject 2 - Description...\n";
             }
+        } else if (input === 'clear') {
+            clearTerminal();
         }
         event.target.value = ''; // Clear input field
         terminalOutput.scrollTop = terminalOutput.scrollHeight; // Auto scroll to bottom
@@ -70,3 +73,17 @@ function handleTabCompletion(event) {
         }
     }
 }
+
+function clearTerminal() {
+    // Clear everything but keep the intro
+    terminalOutput.innerHTML = `${lineArt}${introText}`;
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+}
+
+// Listen for Ctrl + L to trigger the clear action
+window.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && event.key === 'l') {
+        event.preventDefault(); // Prevent the default browser behavior for Ctrl + L
+        clearTerminal();
+    }
+});
