@@ -1,0 +1,101 @@
+/* Reset default padding and margins */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #33ff33; /* Default color for all text */
+    font-family: 'Courier New', Courier, monospace;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align everything at the top */
+}
+
+.terminal {
+    width: 90%;
+    height: auto;
+    padding: 0;
+    border: 2px solid #33ff33;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.header {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 2px solid #33ff33;
+    text-align: center;
+}
+
+.ascii-art {
+    font-size: 10px;
+    line-height: 1.2;
+    color: #33ff33; /* Color for ASCII art */
+}
+
+.content {
+    width: 100%;
+    padding: 10px;
+}
+
+.left {
+    text-align: left;
+}
+
+/* Prompt section */
+.prompt {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    border-top: 1px solid #33ff33;
+    background-color: black; /* Ensure the prompt background matches the terminal */
+}
+
+.path {
+    color: #00aaff; /* Blue color for the path */
+}
+
+.symbol {
+    color: #33ff33; /* Green color for the '>' symbol */
+}
+
+/* Style the terminal input field */
+.terminal-input {
+    background-color: black;
+    color: #33ff33;
+    border: none;
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    width: 100%; /* Make it take available space */
+    caret-color: #33ff33; /* Green caret (cursor) */
+}
+
+/* Prevent input styles from affecting overall content */
+.terminal-input:focus {
+    border: none;
+    outline: none;
+}
+
+/* Custom colors for text beginning with #, >, and * */
+.command {
+    color: #33ff99; /* Lighter green for commands starting with > */
+}
+
+.comment {
+    color: #ffff00; /* Yellow for comments starting with # */
+}
+
+.skill {
+    color: #40e0d0; /* Turquoise color for skills starting with * */
+}
