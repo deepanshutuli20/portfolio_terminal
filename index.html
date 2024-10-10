@@ -3,29 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Terminal Style</title>
+    <title>Portfolio - Command Line Interface</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="terminal">
-        <div class="header">
-            <pre class="ascii-art">
-________                                          .__           
-\______ \   ____  ____ ___________    ____   _____|  |__  __ __ 
- |    |  \_/ __ \/ __ \\____ \__  \  /    \ /  ___/  |  \|  |  \
- |    `   \  ___|  ___/|  |_> > __ \|   |  \\___ \|   Y  \  |  /
-/_______  /\___  >___  >   __(____  /___|  /____  >___|  /____/ 
-        \/     \/    \/|__|       \/     \/     \/     \/        
-            </pre>
+        <div class="content" id="terminal-output">
+            <!-- Typing effect intro will go here -->
         </div>
-        <div class="content">
-            <div class="left">
-                <pre id="typing-text"></pre>
-            </div>
-        </div>
-        <!-- Add the interactive prompt at the end of the portfolio -->
+        <!-- Command prompt input area -->
         <div class="prompt">
-            <span class="path">~/deepanshu_tuli</span> <span class="symbol">></span>
+            <span class="path">~/deepanshu_tuli</span><span class="symbol">></span>
             <input type="text" id="terminal-input" class="terminal-input" autofocus />
         </div>
     </div>

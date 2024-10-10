@@ -1,101 +1,69 @@
-/* Reset default padding and margins */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    color: #33ff33; /* Default color for all text */
-    font-family: 'Courier New', Courier, monospace;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align everything at the top */
-}
-
-.terminal {
-    width: 90%;
-    height: auto;
-    padding: 0;
-    border: 2px solid #33ff33;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.header {
-    width: 100%;
-    padding: 10px;
-    border-bottom: 2px solid #33ff33;
-    text-align: center;
-}
-
-.ascii-art {
-    font-size: 10px;
-    line-height: 1.2;
-    color: #33ff33; /* Color for ASCII art */
-}
-
-.content {
-    width: 100%;
-    padding: 10px;
-}
-
-.left {
-    text-align: left;
-}
-
-/* Prompt section */
-.prompt {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 20px 10px;
-    border-top: 1px solid #33ff33;
-    background-color: black; /* Ensure the prompt background matches the terminal */
-}
-
-.path {
-    color: #00aaff; /* Blue color for the path */
-}
-
-.symbol {
-    color: #33ff33; /* Green color for the '>' symbol */
-}
-
-/* Style the terminal input field */
-.terminal-input {
-    background-color: black;
-    color: #33ff33;
-    border: none;
-    outline: none;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    width: 100%; /* Make it take available space */
-    caret-color: #33ff33; /* Green caret (cursor) */
-}
-
-/* Prevent input styles from affecting overall content */
-.terminal-input:focus {
-    border: none;
-    outline: none;
-}
-
-/* Custom colors for text beginning with #, >, and * */
 .command {
-    color: #33ff99; /* Lighter green for commands starting with > */
+    color: #33ff99 !important; /* Light green for commands starting with > */
 }
 
 .comment {
-    color: #ffff00; /* Yellow for comments starting with # */
+    color: #ffff00 !important; /* Yellow for comments starting with # */
 }
 
 .skill {
-    color: #40e0d0; /* Turquoise color for skills starting with * */
+    color: #40e0d0 !important; /* Turquoise for lines starting with * */
 }
+
+.directory {
+    color: #0000ff !important; /* Blue for directory listing */
+}
+
+pre {
+    color: #33ff33 !important; /* Line art color */
+}
+
+body {
+    background-color: black !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    color: #33ff33 !important; /* Default green for unstyled text */
+}
+
+.terminal {
+    width: 90% !important;
+    padding: 10px !important;
+    border: 2px solid #33ff33 !important;
+    margin: 0 auto !important;
+    height: 90vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+.content {
+    flex-grow: 1 !important;
+    overflow-y: auto !important;
+    padding-bottom: 10px !important;
+    white-space: pre-wrap !important;
+}
+
+.prompt {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.path {
+    color: #00aaff !important; /* Blue for the prompt path */
+}
+
+.symbol {
+    color: #33ff33 !important;
+}
+
+.terminal-input {
+    background-color: black !important;
+    color: #33ff33 !important;
+    border: none !important;
+    outline: none !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    width: 100% !important;
+    caret-color: #33ff33 !important;
+    font-size: 16px !important;
+}
+
+
