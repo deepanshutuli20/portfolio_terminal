@@ -4,12 +4,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Store the intro text as a variable
     const introText = ` 
- ________                                          .__           
- \\______ \\   ____  ____ ___________    ____   _____|  |__  __ __ 
-  |    |  \\_/ __ \\/ __ \\\\____ \\__  \\  /    \\ /  ___/  |  \\|  |  \\
-  |    \`   \\  ___|  ___/|  |_> > __ \\|   |  \\\\___ \\|   Y  \\  |  /
- /_______  /\\___  >___  >   __(____  /___|  /____  >___|  /____/ 
-         \\/     \\/    \\/|__|       \\/     \\/     \\/     \\/       
+ 
+▗▄▄▄ ▗▄▄▄▖▗▄▄▄▖▗▄▄▖  ▗▄▖ ▗▖  ▗▖ ▗▄▄▖▗▖ ▗▖▗▖ ▗▖    ▗▄▄▄▖▗▖ ▗▖▗▖   ▗▄▄▄▖
+▐▌  █▐▌   ▐▌   ▐▌ ▐▌▐▌ ▐▌▐▛▚▖▐▌▐▌   ▐▌ ▐▌▐▌ ▐▌      █  ▐▌ ▐▌▐▌     █  
+▐▌  █▐▛▀▀▘▐▛▀▀▘▐▛▀▘ ▐▛▀▜▌▐▌ ▝▜▌ ▝▀▚▖▐▛▀▜▌▐▌ ▐▌      █  ▐▌ ▐▌▐▌     █  
+▐▙▄▄▀▐▙▄▄▖▐▙▄▄▖▐▌   ▐▌ ▐▌▐▌  ▐▌▗▄▄▞▘▐▌ ▐▌▝▚▄▞▘      █  ▝▚▄▞▘▐▙▄▄▖▗▄█▄▖
+                                                                      
+                                                                      
+                                                                      
+       
 > Hello, I'm Deepanshu
 # I am a Devops Engineer
 I am a dependable person who is great at time management. I love working in technically challenging environments
