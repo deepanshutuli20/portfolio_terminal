@@ -1,69 +1,31 @@
-.command {
-    color: #33ff99 !important; /* Light green for commands starting with > */
-}
-
-.comment {
-    color: #ffff00 !important; /* Yellow for comments starting with # */
-}
-
-.skill {
-    color: #40e0d0 !important; /* Turquoise for lines starting with * */
-}
-
-.directory {
-    color: #0000ff !important; /* Blue for directory listing */
-}
-
-pre {
-    color: #33ff33 !important; /* Line art color */
-}
-
 body {
-    background-color: black !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    color: #33ff33 !important; /* Default green for unstyled text */
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    color: #33ff33;
 }
 
 .terminal {
-    width: 90% !important;
-    padding: 10px !important;
-    border: 2px solid #33ff33 !important;
-    margin: 0 auto !important;
-    height: 90vh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
+    border: 2px solid green;
+    padding: 10px;
+    margin: 0 auto;
+    width: 80%;
+    height: 80vh;
+    overflow-y: auto;
 }
 
-.content {
-    flex-grow: 1 !important;
-    overflow-y: auto !important;
-    padding-bottom: 10px !important;
-    white-space: pre-wrap !important;
+.input-line {
+    display: flex;
 }
 
-.prompt {
-    display: flex !important;
-    align-items: center !important;
+#user-input {
+    background: none;
+    border: none;
+    color: #33ff33;
+    outline: none;
+    width: 100%;
 }
 
-.path {
-    color: #00aaff !important; /* Blue for the prompt path */
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
-
-.symbol {
-    color: #33ff33 !important;
-}
-
-.terminal-input {
-    background-color: black !important;
-    color: #33ff33 !important;
-    border: none !important;
-    outline: none !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    width: 100% !important;
-    caret-color: #33ff33 !important;
-    font-size: 16px !important;
-}
-
-

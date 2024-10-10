@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Command Line Interface</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Portfolio Terminal</title>
 </head>
 <body>
     <div class="terminal">
-        <div class="content" id="terminal-output">
-            <!-- Typing effect intro will go here -->
-        </div>
-        <!-- Command prompt input area -->
-        <div class="prompt">
-            <span class="path">~/deepanshu_tuli</span><span class="symbol">></span>
-            <input type="text" id="terminal-input" class="terminal-input" autofocus />
+        <pre id="terminal-output"></pre>
+        <div class="input-line">
+            <span id="prompt">~/deepanshu_tuli&gt; </span>
+            <input id="user-input" type="text" autofocus onkeypress="handleCommand(event)" onkeydown="handleTabCompletion(event)" />
         </div>
     </div>
     <script src="script.js"></script>
