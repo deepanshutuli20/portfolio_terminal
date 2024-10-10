@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepanshu's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Portfolio Terminal</title>
 </head>
 <body>
     <div class="terminal">
         <pre id="terminal-output"></pre>
-        <div class="input-line">
-            <span id="prompt">~/deepanshu_tuli&gt; </span>
-            <input id="user-input" type="text" autofocus onkeypress="handleCommand(event)" onkeydown="handleTabCompletion(event)" />
-        </div>
+        <input type="text" id="terminal-input" placeholder="Type a command..." autofocus />
     </div>
     <script src="script.js"></script>
 </body>

@@ -2,30 +2,25 @@ body {
     background-color: black;
     font-family: 'Courier New', Courier, monospace;
     color: #33ff33;
+    margin: 0;
+    padding: 20px;
 }
 
 .terminal {
     border: 2px solid green;
     padding: 10px;
-    margin: 0 auto;
-    width: 80%;
-    height: 80vh;
-    overflow-y: auto;
+    background-color: black;
 }
 
-.input-line {
-    display: flex;
+#terminal-output {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 
-#user-input {
-    background: none;
+#terminal-input {
     border: none;
+    background-color: black;
     color: #33ff33;
     outline: none;
     width: 100%;
-}
-
-pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
 }
