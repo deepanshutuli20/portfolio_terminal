@@ -21,6 +21,7 @@ Take some time to explore this terminal website made by me. You can list the pag
 
     let introTyped = false; // To check if intro has been typed
 
+    // Type the intro if it's not typed already
     function typeIntro(text, index = 0) {
         if (index < text.length) {
             terminalOutput.innerHTML += text.charAt(index);
@@ -32,7 +33,7 @@ Take some time to explore this terminal website made by me. You can list the pag
         }
     }
 
-    // Only type the intro when the page first loads
+    // Load the intro when the page first loads with typing effect
     if (!introTyped) {
         typeIntro(introText);
     }
@@ -60,7 +61,7 @@ Take some time to explore this terminal website made by me. You can list the pag
                 }
             } else if (input.startsWith('vim ')) {
                 const topic = input.split(' ')[1];
-                openVimPage(topic);
+                loadPage(topic);
             } else if (input === 'clear') {
                 clearTerminal();
             } else {
@@ -78,7 +79,8 @@ Take some time to explore this terminal website made by me. You can list the pag
         }
     });
 
-    function openVimPage(topic) {
+    // Load content dynamically into the terminal
+    function loadPage(topic) {
         const pageMap = {
             'Projects': 'projects.html',
             'Skills': 'skills.html',
@@ -87,14 +89,30 @@ Take some time to explore this terminal website made by me. You can list the pag
         };
 
         if (pageMap[topic]) {
-            window.open(pageMap[topic], '_blank'); // Open in new tab
+            fetch(pageMap[topic])
+                .then(response => response.text())
+                .then(data => {
+                    terminalOutput.innerHTML = data;
+                    terminalInput.style.display = 'none'; // Hide input in the detailed page
+                })
+                .catch(err => {
+                    terminalOutput.innerHTML += `\nError loading page: ${topic}\n`;
+                });
         } else {
             terminalOutput.innerHTML += `\nUnknown page: ${topic}\n`;
         }
     }
 
+    // Restore terminal with full intro without typing effect
+    function backToTerminal() {
+        terminalOutput.innerHTML = introText; // Show the intro directly without typing effect
+        terminalInput.style.display = 'block'; // Show input
+        terminalInput.focus(); // Focus on input
+    }
+
+    // Clear terminal and restore intro without typing effect
     function clearTerminal() {
-        terminalOutput.innerHTML = introText; // Reset terminal to show only the intro text
+        terminalOutput.innerHTML = introText; // Reset terminal to show only the intro text without typing
         terminalInput.value = ''; // Clear input field
         terminalInput.focus(); // Re-focus on input
     }
@@ -112,6 +130,14 @@ Take some time to explore this terminal website made by me. You can list the pag
                     terminalInput.value = input.replace(lastWord, matches[0]);
                 }
             }
+        }
+    });
+
+    // Add a listener for "Back to Terminal" button
+    document.body.addEventListener('click', function(event) {
+        if (event.target.tagName === 'A' && event.target.innerText === 'Back to Terminal') {
+            event.preventDefault(); // Prevent default navigation
+            backToTerminal(); // Restore terminal
         }
     });
 });
