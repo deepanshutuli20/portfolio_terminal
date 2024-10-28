@@ -27,7 +27,7 @@ Take some time to explore this terminal website made by me. You can list the pag
     function typeIntro(text, index = 0) {
         if (index < text.length) {
             terminalOutput.innerHTML += text.charAt(index);
-            setTimeout(() => typeIntro(text, index + 1), 15); // Adjust typing speed here
+            setTimeout(() => typeIntro(text, index + 1), 7.5); // Adjust typing speed here
         } else {
             introTyped = true;
             terminalOutput.innerHTML += '\n'; // New line after intro
@@ -51,11 +51,11 @@ Take some time to explore this terminal website made by me. You can list the pag
                 if (topic === 'Projects') {
                     terminalOutput.innerHTML += "\n- WebAutomation.io\n- Solana Labs\n- BlueSpice MediaWiki\n";
                 } else if (topic === 'Skills') {
-                    terminalOutput.innerHTML += "\n* Terraform\n* Ansible\n";
+                    terminalOutput.innerHTML += "\n* Terraform\n* Ansible\n* Docker\n* Kubernetes\n* Shell Scripting\n* Building Deployment Pipelines(CI/CD)\n* Clouds\n  - AWS\n  - GCP\n  - Azure\n  - Hetzner";
                 } else if (topic === 'Experience') {
-                    terminalOutput.innerHTML += "\n# 4+ years in Full Stack and Data Engineering roles\n";
+                    terminalOutput.innerHTML += "\n# 2.5+ years as a Devops Engineer in various projects and organisations.\n";
                 } else if (topic === 'Contact') {
-                    terminalOutput.innerHTML += "\n# Email: youremail@example.com\n# LinkedIn: linkedin.com/in/yourprofile\n";
+                    terminalOutput.innerHTML += "\n# Email: tulideepanshu@gmail.com\n# LinkedIn: www.linkedin.com/in/deepanshu-tuli-482461118\n# Github: https://github.com/deepanshutuli20";
                 } else if (topic === 'Resume') {
                     terminalOutput.innerHTML += "\nType vim Resume to view Resume\n";
                 } else {
