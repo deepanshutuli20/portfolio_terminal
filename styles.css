@@ -1,4 +1,4 @@
-/* Ensure body has appropriate padding on mobile */
+/* General Body Styling */
 body {
     margin: 0;
     padding: 0;
@@ -7,40 +7,64 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* Terminal box adjustments for smaller screens */
+/* Terminal Box Styling */
 .terminal {
     border: 2px solid #33ff33;
     padding: 10px;
-    margin: 20px auto;
-    width: 90%; /* Reduce width for smaller screens */
-    max-height: 90vh;
-    overflow-y: auto;
+    margin: 50px auto;
+    width: 80%;
+    max-height: 90vh; /* Ensures max height to avoid overflow */
+    overflow-y: auto; /* Adds scroll for overflowing content */
+    box-sizing: border-box; /* Includes padding and border in width/height calculations */
 }
 
-/* Responsive design for screens smaller than 768px */
+/* Ensure the terminal output text wraps correctly */
+#terminal-output {
+    white-space: pre-wrap; /* Preserves formatting but wraps long lines */
+}
+
+/* Styling the terminal input */
+#terminal-input {
+    background: black;
+    color: #33ff33;
+    border: none;
+    width: 100%; /* Full width inside its container */
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box; /* Includes padding in the element's total width */
+}
+
+/* Responsive Design for Tablets and Smaller Screens */
 @media screen and (max-width: 768px) {
     .terminal {
         width: 95%;
-        margin: 10px auto;
-        padding: 5px;
+        margin: 20px auto;
+        padding: 10px;
     }
 
     h1, p, a {
-        font-size: 18px; /* Reduce font size for better readability */
+        font-size: 18px; /* Reduces font size for better readability */
     }
 
     #terminal-input {
         font-size: 16px;
+        padding: 8px;
     }
 }
 
-/* Additional customization for very small screens */
+/* Responsive Design for Small Screens (Mobile) */
 @media screen and (max-width: 480px) {
+    .terminal {
+        width: 100%; /* Takes full width on mobile */
+        margin: 10px auto;
+    }
+
     h1, p, a {
-        font-size: 16px;
+        font-size: 16px; /* Further reduce font size for very small screens */
     }
 
     #terminal-input {
-        font-size: 14px;
+        font-size: 14px; /* Adjust font size for input on small screens */
+        padding: 8px;
     }
 }
